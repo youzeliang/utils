@@ -1,11 +1,9 @@
 package com.tool;
 
-import com.tool.utils.ArrayUtils;
+import com.tool.base.RegexUtils;
 
 public class Test {
     public static void main(String[] args) {
-        String a[] = {"fd","fdfd"};
-        String b = ArrayUtils.getArrayFirst(a);
-        System.out.println(b);
+        System.out.println( RegexUtils.isEmail("fdsfsd@fd.com"));
     }
 }
