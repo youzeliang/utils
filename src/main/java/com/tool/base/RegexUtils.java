@@ -11,10 +11,9 @@ public class RegexUtils {
 
     /**
      * 判断输入的字符串是否符合Email格式
-     *
+     * @date 18-04-13
      * @param email
      * @return
-     * @date 18-04-13
      */
     public static boolean isEmail(String email) {
         if (email == null || email.length() < 1 || email.length() > 256) {
