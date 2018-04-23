@@ -5,37 +5,38 @@
 ```
 {
         "id" : "fsd1432",
-        "account" : "fd",                 //企业账户
-        "methods" : [  {                 //treepay 
-        "type" : "treepay",               //treepay
-        "method" : "PACA",　　             //信用卡支付
-        "siteCd" : "A0000332C1",   
-        "secureKey" : "3-PaCzKhtZdel2uDgV5TFnqZF4dZ.GQcA3OnxIp_"
-        "accountNo" : "fdfd"              //对应不同方式下的企业账号
-        "enabled" : 1                     //是否启用,0起用,1停用
-        "payOrder" : 1                    //排序号
-        "createTime" : 432423            
-        "updateTime" : 323213
-},
-{    //支付宝,包含的就是支付宝方式全部信息
-"type":"alipay",   //2代表支付宝  
-"sign":"fdfs" // 商户请求参数的签名串
-                    "appId":"2016091500519689"  //APPID，收款账号既是您的APPID对应支付宝账号,也提供账号
-                    "merchantPrivateKey":"vAI"  //  商户私钥，PKCS8格式RSA2私钥
-                    "accountNo":"fdfd"           //账号
-                    "alipay_public_key":"fd"    //　公钥
-                    "enabled":1    //是否启用,0起用,1停用
-                     "payOrder":2   //排序号
-                     "createTime": 432423  //创建时间
-                     "updateTime" : 323213
-                 },
-                 {  
-                   //其他支付方式
-                 }
+        "account" : "fd",                     //企业账户
+        "methods" : [  {                
+        
+            "type" : "treepay",               //treepay
+            "method" : "PACA",　　             //信用卡支付
+            "siteCd" : "A00001",               //treepay提供
+            "secureKey" : "3-Q_",　　　　　　　　// 安全密钥
+            "accountNo" : "fdfd" ,             //对应不同方式下的企业账号
+            "enabled" : 1 ,                    //是否启用,0起用,1停用
+            "payOrder" : 1 ,                   //排序号
+            "createTime" : 432423 ,           
+            "updateTime" : 323213
+            },
+        {    //支付宝,包含的就是支付宝方式全部信息
+            "type":"alipay",   //2代表支付宝  
+            "sign":"fdfs" // 商户请求参数的签名串
+            "appId":"2016091500519689"  //APPID，收款账号既是您的APPID对应支付宝账号,也提供账号
+            "merchantPrivateKey":"vAI"  //  商户私钥，PKCS8格式RSA2私钥
+            "accountNo":"fdfd"           //账号
+            "alipay_public_key":"fd"    //　公钥
+            "enabled":1    //是否启用,0起用,1停用
+            "payOrder":2   //排序号
+            "createTime": 432423  //创建时间
+            "updateTime" : 323213
+        },
+            {  
+                //其他支付方式
+             }
       ]
-      "enterpriseName":"fd"   //机构名称
-      "createTime" : 1321321
-      "updateTime" : 234234
+      "enterpriseName":"fd",   //机构名称
+      "createTime" : 1321321,
+      "updateTime" : 234234,
 }
 ```
 
