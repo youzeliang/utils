@@ -4,7 +4,7 @@
 ### Enterprise Object
 ```
 {
-    "id" : "fsd432",
+    "id" : "fsd1432",
     "account":"fd",         "企业账户"
     "methods": [  {        //treepay 
     "type":"treepay",     // 1代表treepay
