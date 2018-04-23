@@ -4,18 +4,18 @@
 ### Enterprise Object
 ```
 {
-    "id" : "fsd1432",
-    "account":"fd",         "企业账户"
-    "methods": [  {        //treepay 
-    "type":"treepay",     // 1代表treepay
-    "method":"PACA",　　//信用卡支付
-    "siteCd":"A0000332C1",
-    "secureKey":"3-PaCzKhtZdel2uDgV5TFnqZF4dZ.GQcA3OnxIp_"
-    "accountNo":"fdfd" //对应不同方式下的企业账号
-    "enabled":1    //是否启用,0起用,1停用
-    "payOrder":1   //排序号
-    "createTime":432423  //创建时间
-    "updateTime" : 323213
+        "id" : "fsd1432",
+        "account" : "fd",                 //企业账户
+        "methods" : [  {                 //treepay 
+        "type" : "treepay",               //treepay
+        "method" : "PACA",　　             //信用卡支付
+        "siteCd" : "A0000332C1",   
+        "secureKey" : "3-PaCzKhtZdel2uDgV5TFnqZF4dZ.GQcA3OnxIp_"
+        "accountNo" : "fdfd"              //对应不同方式下的企业账号
+        "enabled" : 1                     //是否启用,0起用,1停用
+        "payOrder" : 1                    //排序号
+        "createTime" : 432423            
+        "updateTime" : 323213
 },
 {    //支付宝,包含的就是支付宝方式全部信息
 "type":"alipay",   //2代表支付宝  
