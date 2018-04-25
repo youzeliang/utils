@@ -127,7 +127,7 @@ Response
 ~~~
    
            {                
-            "type"      : "treepay",               //treepay
+            "type"      : "treepay",             //treepay
             "method"   :{"PACA","PACB","PACC"}  //几种不同的支付方式
             "payOrder"  : 1 ,                   //排序号
             },
@@ -160,7 +160,6 @@ Request
                    "orderFirstName" : "321",
                    "quantity"    : 2,              //数量
 
-                   
                    "billEndYmd"   :"20180809"　　　//仅限定期付款
                    "billFrequency":"w"           //仅限定制付款
                    
@@ -267,9 +266,9 @@ success:
 }
 Fail
 {
-         "order_no"      :"201804231524471179371",
-         "res_msg"       :"trade not exist",
-         "res_cd"        :"P403"
+         "orderNo"      :"201804231524471179371",
+         "resMsg"       :"trade not exist",
+         "resCd"        :"P403"
 }
 ~~~
 ### PaymentServer
