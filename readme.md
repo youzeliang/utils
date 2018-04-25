@@ -139,7 +139,7 @@ Response
     
 ~~~
 
-PaymentService
+EnterpriseService
 
 Enterprise getPayMethod(String enterprise)
 
@@ -190,7 +190,7 @@ Response
                 }
 ~~~
 
-PaymentService
+### OrderService
 //根据机构id查询企业信息获取siteCd, siteKey
 Enterprise getPayMethod(String enterprise)
 // 判断订单是否重复，否则不入库,防止重复提交
@@ -225,7 +225,7 @@ Response
     
 ~~~
 
-Server 保存数据
+### OrderServer 保存数据
 PayResult saveResult(PayResult payResult)
 
 ### 查询订单
@@ -271,7 +271,7 @@ Fail
          "resCd"        :"P403"
 }
 ~~~
-### PaymentServer
+### OrderServer
 
 根据机构id查询企业信息获取siteCd, siteKey
 
@@ -317,52 +317,16 @@ String getEnterprise(String orderNo)
 success:
 {
         "code": 1,
-        "data":
-        {
-            "orderNo"    :"201804231524471179375",
-            "tradeMony"  :"99.99",
-            "resMsg"     :"สำเร็จ",
-            "escrowYn"   :"N",
-            "tradeStat"  :"STSR",
-            "resCd"      :"0000",
-            "authNo"     :"831000",
-            "tradeYmd"   :"20180423",
-            "tno"        :"180423151044978831",
-            "authHms"    :"151000",
-            "tradeHms"   :"151000",
-            "cardBrand"  :"CVSF",
-            "authYmd"    :"20180423"
-        }
 }
-Fail
-{
-         "orderNo"      :"201804231524471179371",
-         "resMsg"       :"trade not exist",
-         "resCd"        :"P403"
+fail:{
+        "msg"   : "add fail"
 }
 ~~~
-### PaymentServer
-
-根据机构id查询企业信息获取siteCd, siteKey
-
-EnterpriseList getEnterprise(String enterpriseId)
-
-根据订单号获取支付类型
-String getEnterprise(String orderNo)
+### EnterpriseServer
 
 
 
-hashData 加密跳转到空白页,紧接着跳treepay
-
-交易成功,跳转到payweb系统的空白页,然后拿数据，紧接着跳不同平台
-
-
-
-
-
-
-
-
+Enterprise addenterprise(Enterprise enterprise)
 
 
 
