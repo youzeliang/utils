@@ -128,13 +128,13 @@ Response
    
            {                
             "type"      : "treepay",             //treepay
-            "method"   :{"PACA","PACB","PACC"}  //几种不同的支付方式
+            "method"    :{"PACA","PACB","PACC"}, //几种不同的支付方式
             "payOrder"  : 1 ,                   //排序号
             },
             
            {    
             "type"      :"alipay",               //支付宝,目前不接入  
-            "payOrder"  :2,                      //排序号
+            "payOrder"  :2 ,                     //排序号
            }
     
 ~~~
@@ -153,19 +153,19 @@ EnterpriseService
 
 Request
 ~~~
-                   "payType"     :"PACA",
-                   "orderNo"     :"321321",
-                   "tradeMony"   :11.11,
-                   "userId"      :"test",
-                   "productName" : "fsd",
+                   "payType"        :"PACA",
+                   "orderNo"        :"321321",
+                   "tradeMony"      :11.11,
+                   "userId"         :"test",
+                   "productName"    : "fsd",
                    "orderFirstName" : "321",
-                   "quantity"    : 2,              //数量
+                   "quantity"       : 2,              //数量
 
-                   "billEndYmd"   :"20180809"　　　//仅限定期付款
-                   "billFrequency":"w"           //仅限定制付款
+                   "billEndYmd"     :"20180809",　　　//仅限定期付款
+                   "billFrequency"  :"w",          //仅限定制付款
                    
-                   "ip" 　　　　　　: "192.0.1.1"
-                   "userAgent" 　 : "windows"  
+                   "ip" 　　　　　　　: "192.0.1.1",
+                   "userAgent"      : "windows",  
 ~~~
 
 Response 
@@ -327,7 +327,7 @@ fail:{
 ~~~
 ### EnterpriseServer
 
-
+    
 
 Enterprise addenterprise(Enterprise enterprise)
 
