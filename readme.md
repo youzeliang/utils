@@ -305,7 +305,7 @@ Fail
                "payOrder"       : 1 ,                     //排序号
                "createTime"     : 432423 ,           
                "updateTime"     : 323213
-               "enterpriseName" :"fd",   //机构名称
+               "enterpriseName" :"fd",                    //机构名称
                "createTime"     : 1321321,
                "updateTime"     : 234234,
 }
