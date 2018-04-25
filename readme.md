@@ -227,8 +227,9 @@ Response
     
 ~~~
 
-### OrderServer 保存数据
-PayResult saveResult(PayResult payResult)
+### OrderServer 
+保存数据
+* PayResult saveResult(PayResult payResult)
 
 ### 查询订单
 #### HTTP接口
@@ -277,10 +278,10 @@ Fail
 
 根据机构id查询企业信息获取siteCd, siteKey
 
-EnterpriseList getEnterprise(String enterpriseId)
+* EnterpriseList getEnterprise(String enterpriseId)
 
 根据订单号获取支付类型
-String getEnterprise(String orderNo)
+* String getEnterprise(String orderNo)
 
 
 ### 添加企业
