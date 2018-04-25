@@ -294,24 +294,20 @@ Fail
 ### Request
 ~~~
 {   
-          "id" 　　　: "fsd1432",                      　
-           "account" : "fd",                          //企业账户
-           "methods" :   {                
-           
-               "type"      : "treepay",               //treepay
-               "treepay"   :"PACA","PACB","PACC"     //几种不同的支付方式
-               "siteCd"    : "A00001",               //treepay提供
-               "secureKey" : "3-Q_",　　　　　　　　    // 安全密钥
-               "accountNo" : "fdfd" ,               //对应不同方式下的企业账号
-               "enabled"   : 1 ,                    //是否启用,0起用,1停用
-               "payOrder"  : 1 ,                     //排序号
-               "createTime": 432423 ,           
-               "updateTime": 323213
-               },
-         
-         "enterpriseName" :"fd",   //机构名称
-         "createTime"     : 1321321,
-         "updateTime"     : 234234,
+               "id" 　　　       : "fsd1432",                      　
+               "account"        : "fd",                          //企业账户
+               "type"           : "treepay",               //treepay
+               "treepay"        :"PACA","PACB","PACC"     //几种不同的支付方式
+               "siteCd"         : "A00001",               //treepay提供
+               "secureKey"      : "3-Q_",　　　　　　　　    // 安全密钥
+               "accountNo"      : "fdfd" ,               //对应不同方式下的企业账号
+               "enabled"        : 1 ,                    //是否启用,0起用,1停用
+               "payOrder"       : 1 ,                     //排序号
+               "createTime"     : 432423 ,           
+               "updateTime"     : 323213
+               "enterpriseName" :"fd",   //机构名称
+               "createTime"     : 1321321,
+               "updateTime"     : 234234,
 }
 ~~~
 
