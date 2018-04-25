@@ -111,7 +111,7 @@
 |协议|HTTP|
 |:----:|:----:|
 |Method|GET|
-|URL|rest/htmls/pay/paymethod.html
+|URL|/rest/htmls/pay/paymethod.html
 
 
 Request
@@ -148,7 +148,7 @@ Enterprise getPayMethod(String enterprise)
 |协议|HTTP|
 |:----:|:----:|
 |Method|POST|
-|URL|/rest/payment/orderInfo
+|URL|/rest/htmls/payment/orderinfo.html
 
 Request
 ~~~
@@ -156,11 +156,16 @@ Request
                    "orderNo"     :"321321",
                    "tradeMony"   :11.11,
                    "userId"      :"test",
-                   "goodName"       : "fsd",
+                   "productName" : "fsd",
                    "orderFirstName" : "321",
+                   "quantity"    : 2,              //数量
+
                    
                    "billEndYmd"   :"20180809"　　　//仅限定期付款
                    "billFrequency":"w"           //仅限定制付款
+                   
+                   "ip" 　　　　　　: "192.0.1.1"
+                   "userAgent" 　 : "windows"  
 ~~~
 
 Response 
@@ -173,6 +178,7 @@ Response
                 "billEndYmd"     : "20170705",
                 "billFrequency"  : "W",
                 "retUrl"         : "www.abd.c",
+                "tradeNo"        : "54",                      //交易流水号, 发送到第三方支付
                 "orderNo"        : "423",
                 "goodName"       : "fsd",
                 "tradeMony"      : 321,
@@ -188,6 +194,12 @@ Response
 PaymentService
 //根据机构id查询企业信息获取siteCd, siteKey
 Enterprise getPayMethod(String enterprise)
+// 判断订单是否重复，否则不入库,防止重复提交
+Boolean getOrderExist(String order)
+// 添加订单
+Order addOrder(Order order)
+//根据订单查询订单是否在指定的付款时间内
+
 
 ### 保存返回信息的接口
 
@@ -268,3 +280,9 @@ EnterpriseList getEnterprise(String enterpriseId)
 
 根据订单号获取支付类型
 String getEnterprise(String orderNo)
+
+
+
+hashData 加密跳转到空白页,紧接着跳treepay
+
+交易成功,跳转到payweb系统的空白页,然后拿数据，紧接着跳不同平台
