@@ -141,7 +141,8 @@ Response
 
 EnterpriseService
 
-Enterprise getPayMethod(String enterprise)
+获取企业
+* Enterprise getPayMethod(String enterprise)
 
 ### 根据选择的方式加密
 
@@ -191,13 +192,14 @@ Response
 ~~~
 
 ### OrderService
-//根据机构id查询企业信息获取siteCd, siteKey
-Enterprise getPayMethod(String enterprise)
-// 判断订单是否重复，否则不入库,防止重复提交
-Boolean getOrderExist(String order)
-// 添加订单
-Order addOrder(Order order)
-//根据订单查询订单是否在指定的付款时间内
+根据机构id查询企业信息获取siteCd, siteKey
+* Enterprise getPayMethod(String enterprise)
+
+判断订单是否重复，否则不入库,防止重复提交
+* Boolean getOrderExist(String order)
+
+添加订单
+* Order addOrder(Order order)
 
 
 ### 保存返回信息的接口
