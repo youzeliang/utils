@@ -71,18 +71,18 @@
             "tradeNo"         : "54",                             //交易流水号
             "responseMsg"     : "success", 　                 //响应消息
             "responseCode"    : 1,  　　　                    //响应代码 也就是treepay的"0000" == 1, 1是成功, 101是余额不够, 500是未知错误
-            "payAccount"      : ""                             //
-            "payTransactionId": "321"                    //第三方支付流水号
+            "payAccount"      : ""                            // 金额
+            "payTransactionId": "321"                         //第三方支付流水号
             "method"          : "treepay"
         
             "result":
            { 
                      "resCd"    : "0000",                        // treepay返回代码
                      "resMsg"   : "suc",                        //　返回信息　　　　　
-                     "type"     : "PACA",　　　　　　　　　　　　　　　　　// 方式　　
-                     "TNO"      :  "43423",                            // 交易号码
+                     "type"     : "PACA",　　　　　　　　　　　　　　// 方式　　
+                     "TNO"      :  "43423",                     // 交易号码
                      "orderNo"  :"3232",                       //支付流水号
-                     "tradeMony":"3232",                     //交易金额
+                     "tradeMony":"3232",                       //交易金额
                      "tradeYmd" : "3232",                      //交易批准的日期
                      "tradeHms" : "432",                       //交易批准的时间
                      "cardNo"   :"3232",                        //卡号
@@ -111,16 +111,24 @@
 |协议|HTTP|
 |:----:|:----:|
 |Method|GET|
-|URL|/rest/payment/orderInfo/{enterprise}
+|URL|rest/htmls/pay/paymethod.html
+
+
+Request
+~~~
+
+              "enterpriseId"      : "fds"
+
+~~~
+
 
 Response
 
 ~~~
    
            {                
-        
             "type"      : "treepay",               //treepay
-            "treepay"   :[{method:"PACA"},{method:"PACB"},{method:"PACC"}]  //几种不同的支付方式
+            "method"   :{"PACA","PACB","PACC"}  //几种不同的支付方式
             "payOrder"  : 1 ,                   //排序号
             },
             
@@ -140,14 +148,17 @@ Enterprise getPayMethod(String enterprise)
 |协议|HTTP|
 |:----:|:----:|
 |Method|POST|
-|URL|/rest/payment/orderInfo/
+|URL|/rest/payment/orderInfo
 
 Request
 ~~~
-                   "pay_type"     :"PACA",
-                   "order_no"     :"321321",
-                   "trade_mony"   :11.11,
-                   "user_id"      :"test",
+                   "payType"     :"PACA",
+                   "orderNo"     :"321321",
+                   "tradeMony"   :11.11,
+                   "userId"      :"test",
+                   "goodName"       : "fsd",
+                   "orderFirstName" : "321",
+                   
                    "billEndYmd"   :"20180809"　　　//仅限定期付款
                    "billFrequency":"w"           //仅限定制付款
 ~~~
@@ -167,7 +178,7 @@ Response
                 "tradeMony"      : 321,
                 "userId"         : "321",
                 "orderFirstName" : "321",
-                "orderEmail"     : "1@.com",
+                "orderEmail"     : "1@.com",    //内部设定一个特定的邮箱,treepay需要
                 "payYype"        : "PACA",
                 "currency"       : "764",
                 "hashData"       : "fsd"
