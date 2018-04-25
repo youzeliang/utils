@@ -1,7 +1,6 @@
 # PaymentWeb Api Documentation
 
-
-### Enterprise Object
+### Enterprise Object 企业信息
 ```
 {
         "id" : "fsd1432",
@@ -9,7 +8,7 @@
         "methods" : [  {                
         
             "type" : "treepay",               //treepay
-            "method" : "PACA",　　             //信用卡支付
+           "treepay":[{method:"PACA"},{method:"PACB"},{method:"PACC"}]  //几种不同的支付方式
             "siteCd" : "A00001",               //treepay提供
             "secureKey" : "3-Q_",　　　　　　　　// 安全密钥
             "accountNo" : "fdfd" ,             //对应不同方式下的企业账号
@@ -19,7 +18,7 @@
             "updateTime" : 323213
             },
         {    
-            "type":"alipay",                   //支付宝  
+            "type":"alipay",                   //支付宝,目前不接入  
             "sign":"fdfs" ,                    // 商户请求参数的签名串
             "appId":"2016091500519689",        //APPID，收款账号既是您的APPID对应支付宝账号,也提供账号
             "merchantPrivateKey":"vAI",        //  商户私钥，PKCS8格式RSA2私钥
@@ -27,7 +26,7 @@
             "alipay_public_key":"fd",          //　公钥
             "enabled":1,                       //是否启用,0起用,1停用
             "payOrder":2,                      //排序号
-            "createTime": 432423  //创建时间
+            "createTime": 432423  　　　　　　　　//创建时间
             "updateTime" : 323213
         },
             {  
@@ -40,21 +39,22 @@
 }
 ```
 
-### Order Object
+### Order Object 交易流水
 
 ```
 {
-        "orderNo" : "54543", //订单号
-        "productName" : "fd"　 //商品名
-        "price" : 4343.3,    //商品价格
-        "quantity" : 2,      //数量
-        "tradeNo" : "54",    //交易流水号, 发送到第三方支付
-        "enterpriseAccount" : "fds",  //收款方账号
-        "buyerId" : "fsd",    //用户id, 业务系统的ID，　支付系统只存储，　不关心
-        "createTime" : "432"  //创建时间
+        "orderNo" : "54543",                   //订单号
+        "productName" : "fd"　                 //商品名
+        "price" : 4343.3,                      //商品价格
+        "quantity" : 2,                        //数量
+        "tradeNo" : "54",                      //交易流水号, 发送到第三方支付
+        "enterpriseAccount" : "fds",           //收款方账号
+        "buyerId" : "fsd",                     //用户id, 业务系统的ID,支付系统只存储,不关心
+        "enterpriseId":"fs"                    //企业id
+        "createTime" : "432"                   //创建时间
         "payMethod" : {
-            "method" : "treepay"　//支付平台
-            "type" : "PANA"     //信用卡付款
+            "method" : "treepay"　              //支付平台
+            "type" : "PANA"                     //信用卡付款
         }
          "ip" : "192.0.1.1"
          "userAgent" : "windows"  
@@ -62,89 +62,192 @@
 
 ```
 
+### Result Object 交易结果
 
-2. 交易流水表
-
-
-3.　交易结果表
+```
 {
     
-    "price" : 4343,   //商品价格
-    "tradeNo" : "54",   //交易流水号
-    "responseMsg" : "success", 　//响应消息
-    "responseCode" : 1,  　　　//响应代码 也就是ｔｒｅｅｐａｙ的"0000" == 1, 1是成功，　250是余额不够，　500是未知错误
-    "payAccount" : ""
-    "payTransactionId" : "" //第三方支付流水号
-    "method" : "treepay"
+        "price" : 4343,                               //商品价格
+        "tradeNo" : "54",                             //交易流水号
+        "responseMsg" : "success", 　                 //响应消息
+        "responseCode" : 1,  　　　                    //响应代码 也就是treepay的"0000" == 1, 1是成功, 101是余额不够, 500是未知错误
+        "payAccount" : ""                             //
+        "payTransactionId" : "321"                    //第三方支付流水号
+        "method" : "treepay"
+        
+        "result":
+           { 
+            "resCd" : "0000",                        // treepay返回代码
+            "resMsg" : "suc",                        //　返回信息　　　　　
+            "type":"PACA",　　　　　　　　　　　　　　　　　// 方式　　
+            "TNO":"43423",                            // 交易号码
+            "orderNo"："3232",                       //支付流水号
+            "tradeMony"："3232",                     //交易金额
+            "tradeYmd"："3232",                      //交易批准的日期
+            "tradeHms":"432",                       //交易批准的时间
+            "cardNo"："3232",                        //卡号
+            "authNo"："3232",                        //发卡机构生成的号码
+            "authYmd"："3232",                       //卡交易批准的日期
+            "authHms"："3232"                        //卡交易批准的时间
     
-    "result":
-    { 
-        "res_cd" : "0000",
-        "res_msg" : "",
-        "type":"PACA",
-        "TNO":"43423",         // 交易号码
-        "order_no"："3232",     //支付流水号
-        "trade_mony"："3232",   //交易金额
-        "trade_ymd"："3232",    //交易批准的日期
-        "trade_hms":"432",      //交易批准的时间
-        "card_no"："3232",     //卡号
-        "auth_no"："3232",     //发卡机构生成的号码，
-        "auth_ymd"："3232",     //卡交易批准的日期
-        "auth_hms"："3232"     //卡交易批准的时间
-    
-        "card_brand":"fds",         // 卡品牌名称
-        "issue_bank":"fdfd",       //发行银行名称
-        "installment_rate":"3%",   //利率
-        "installment_period":3,   //分期付款期限
-        "installment_mony":"54",  //每月金额
-        "total_mony":"43"        //total_mony
+            "cardBrand":"fds",                      // 卡品牌名称
+            "issueBank":"fdfd",                     //发行银行名称
+            "installmentRate":12.02,                //利率
+            "installmentPeriod":3,                  //分期付款期限
+            "installmentMony":"54",                 //每月金额
+            "totalMony":"43"                        //total_mony
     
      }
-    //
-     {
-      　"method": "alipay"
-        "trade_no":"20311"     //支付宝交易号
-     }
-}          
+         {
+          　"method": "alipay"
+            "tradeNo":"20311"     //支付宝交易号
+        }
+}  
 
+```
 
+### 根据企业id获取企业支付方式
 
+|协议|HTTP|
+|:----:|:----:|
+|Method|GET|
+|URL|/rest/payment/orderInfo/{enterprise}
 
+Response
 
+~~~
+   
+"methods" : [  {                
+        
+            "type" : "treepay",               //treepay
+           "treepay":[{method:"PACA"},{method:"PACB"},{method:"PACC"}]  //几种不同的支付方式
+            "payOrder" : 1 ,                   //排序号
+            },
+        {    
+            "type":"alipay",                   //支付宝,目前不接入  
+            "payOrder":2,                      //排序号
+        }
+      ]
+    
+~~~
 
+PaymentService
 
+Enterprise getPayMethod(String enterprise)
 
+### 根据选择的方式加密
 
+|协议|HTTP|
+|:----:|:----:|
+|Method|POST|
+|URL|/rest/payment/orderInfo/
 
+Request
+~~~
+                "pay_type"："PACA",
+                "order_no":"321321",
+                "trade_mony":11.11,
+                "user_id":"test",
+                "bill_end_ymd":"20180809"　　　//仅限定期付款
+                "bill_frequency":"w"     //仅限定制付款
+~~~
 
+Response 
 
+~~~
+                "code":1,
+                "data"
+                {
+                "site_cd"         : "fsd",
+                "bill_end_ymd"    : "20170705",
+                "bill_frequency"  : "W",
+                "ret_url"         : "www.abd.c",
+                "order_no"        : "423",
+                "good_name"       : "fsd",
+                "trade_mony"      : 321,
+                "user_id"         : "321",
+                "order_first_name": "321",
+                "order_email"     : "1@.com",
+                "pay_type"        : "PACA",
+                "currency"        : "764",
+                "hash_data"       : "fsd"
+                }
+~~~
 
+PaymentService
+//根据机构id查询企业信息获取site_cd, site_key
+Enterprise getPayMethod(String enterprise)
 
+### 保存返回信息的接口
 
+|协议|HTTP|
+|:----:|:----:|
+|Method|POST|
+|URL|/rest/htmls/payResult.html
 
+Response 
 
+~~~
+   
+           order_no  : "321",
+           res_cd    : "res_cd",
+           res_msg   : "res_msg",
+           TNO       : "TNO",
+           trade_mony: "trade_mony",
+           trade_ymd : "trade_ymd",
+           trade_hms : "trade_hms",
+           card_no   : card_no,
+           auth_no   : auth_no,
+           auth_ymd  : auth_ymd,
+           auth_hms  : auth_hms
+    
+~~~
 
+Server 保存数据
+PayResult saveResult(PayResult payResult)
 
+### 查询订单
+#### HTTP接口
+ 协议|HTTP
+  :-|:-
+ 方式|GET
+ URL|/rest/payment/order/{tradeNo}
+#### Response
+~~~
+success:
+{
+    "code": 1,
+    "data":
+    {
+    "order_no":"201804231524471179375",
+    "trade_mony":"99.99",
+    "res_msg":"สำเร็จ",
+    "escrow_yn":"N",
+    "trade_stat":"STSR",
+    "res_cd":"0000",
+    "auth_no":"831000",
+    "trade_ymd":"20180423",
+    "tno":"180423151044978831",
+    "auth_hms":"151000",
+    "trade_hms":"151000",
+    "card_brand":"CVSF",
+    "auth_ymd":"20180423"
+    }
+}
+Fail
+{
+    "order_no":"201804231524471179371",
+    "res_msg":"trade not exist",
+    "res_cd":"P403"
+}
+~~~
+#### Server
 
+PaymentServer
 
+// 根据机构id查询企业信息获取site_cd, site_key
 
+　 EnterpriseList getEnterprise(String enterpriseId)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//　根据订单号获取支付类型
+　String getEnterprise(String orderNo)
