@@ -281,7 +281,92 @@ EnterpriseList getEnterprise(String enterpriseId)
 String getEnterprise(String orderNo)
 
 
+### 添加企业
+#### HTTP接口
+ 协议|HTTP
+  :-|:-
+ 方式|POST
+ URL|/rest/payment/enterprise
+ 
+### Request
+~~~
+{   
+          "id" 　　　: "fsd1432",                      　
+           "account" : "fd",                          //企业账户
+           "methods" :   {                
+           
+               "type"      : "treepay",               //treepay
+               "treepay"   :"PACA","PACB","PACC"     //几种不同的支付方式
+               "siteCd"    : "A00001",               //treepay提供
+               "secureKey" : "3-Q_",　　　　　　　　    // 安全密钥
+               "accountNo" : "fdfd" ,               //对应不同方式下的企业账号
+               "enabled"   : 1 ,                    //是否启用,0起用,1停用
+               "payOrder"  : 1 ,                     //排序号
+               "createTime": 432423 ,           
+               "updateTime": 323213
+               },
+         
+         "enterpriseName" :"fd",   //机构名称
+         "createTime"     : 1321321,
+         "updateTime"     : 234234,
+}
+~~~
+
+#### Response
+~~~
+success:
+{
+        "code": 1,
+        "data":
+        {
+            "orderNo"    :"201804231524471179375",
+            "tradeMony"  :"99.99",
+            "resMsg"     :"สำเร็จ",
+            "escrowYn"   :"N",
+            "tradeStat"  :"STSR",
+            "resCd"      :"0000",
+            "authNo"     :"831000",
+            "tradeYmd"   :"20180423",
+            "tno"        :"180423151044978831",
+            "authHms"    :"151000",
+            "tradeHms"   :"151000",
+            "cardBrand"  :"CVSF",
+            "authYmd"    :"20180423"
+        }
+}
+Fail
+{
+         "orderNo"      :"201804231524471179371",
+         "resMsg"       :"trade not exist",
+         "resCd"        :"P403"
+}
+~~~
+### PaymentServer
+
+根据机构id查询企业信息获取siteCd, siteKey
+
+EnterpriseList getEnterprise(String enterpriseId)
+
+根据订单号获取支付类型
+String getEnterprise(String orderNo)
+
+
 
 hashData 加密跳转到空白页,紧接着跳treepay
 
 交易成功,跳转到payweb系统的空白页,然后拿数据，紧接着跳不同平台
+
+
+
+
+
+
+
+
+
+
+
+hashData 加密跳转到空白页,紧接着跳treepay
+
+交易成功,跳转到payweb系统的空白页,然后拿数据，紧接着跳不同平台
+
