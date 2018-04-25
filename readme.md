@@ -222,7 +222,15 @@ PayResult saveResult(PayResult payResult)
  协议|HTTP
   :-|:-
  方式|GET
- URL|/rest/payment/order/{tradeNo}
+ URL|/rest/payment/order?ono={orderNo}
+ 
+### Request
+~~~
+{   
+    "orderNo":"2121"
+}
+~~~
+
 #### Response
 ~~~
 success:
@@ -252,9 +260,7 @@ Fail
          "res_cd"        :"P403"
 }
 ~~~
-#### Server
-
-PaymentServer
+### PaymentServer
 
 根据机构id查询企业信息获取siteCd, siteKey
 
