@@ -189,17 +189,17 @@ Response
 
 ~~~
    
-           order_no  : "321",
-           res_cd    : "res_cd",
-           res_msg   : "res_msg",
-           TNO       : "TNO",
-           trade_mony: "trade_mony",
-           trade_ymd : "trade_ymd",
-           trade_hms : "trade_hms",
-           card_no   : card_no,
-           auth_no   : auth_no,
-           auth_ymd  : auth_ymd,
-           auth_hms  : auth_hms
+           orderNo  : "321",
+           resCd    : "res_cd",
+           resMsg   : "res_msg",
+           TNO      : "TNO",
+           tradeMony: "trade_mony",
+           tradeYmd : "trade_ymd",
+           tradeHms : "trade_hms",
+           cardNo   : "card_no",
+           authNo   : "auth_no",
+           authYmd  : "auth_ymd",
+           authHms  : "auth_hms"
     
 ~~~
 
@@ -219,35 +219,35 @@ success:
         "code": 1,
         "data":
         {
-            "order_no":"201804231524471179375",
-            "trade_mony":"99.99",
-            "res_msg":"สำเร็จ",
-            "escrow_yn":"N",
-            "trade_stat":"STSR",
-            "res_cd":"0000",
-            "auth_no":"831000",
-            "trade_ymd":"20180423",
-            "tno":"180423151044978831",
-            "auth_hms":"151000",
-            "trade_hms":"151000",
-            "card_brand":"CVSF",
-            "auth_ymd":"20180423"
+            "orderNo"    :"201804231524471179375",
+            "tradeMony"  :"99.99",
+            "resMsg"     :"สำเร็จ",
+            "escrowYn"   :"N",
+            "tradeStat"  :"STSR",
+            "resCd"      :"0000",
+            "authNo"     :"831000",
+            "tradeYmd"   :"20180423",
+            "tno"        :"180423151044978831",
+            "authHms"    :"151000",
+            "tradeHms"   :"151000",
+            "cardBrand"  :"CVSF",
+            "authYmd"    :"20180423"
         }
 }
 Fail
 {
-         "order_no":"201804231524471179371",
-         "res_msg":"trade not exist",
-         "res_cd":"P403"
+         "order_no"      :"201804231524471179371",
+         "res_msg"       :"trade not exist",
+         "res_cd"        :"P403"
 }
 ~~~
 #### Server
 
 PaymentServer
 
-// 根据机构id查询企业信息获取site_cd, site_key
+根据机构id查询企业信息获取siteCd, siteKey
 
-　 EnterpriseList getEnterprise(String enterpriseId)
+EnterpriseList getEnterprise(String enterpriseId)
 
-//　根据订单号获取支付类型
-　String getEnterprise(String orderNo)
+根据订单号获取支付类型
+String getEnterprise(String orderNo)
