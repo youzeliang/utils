@@ -1,9 +1,14 @@
 package com.tool;
 
-import com.tool.base.RegexUtils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Test {
     public static void main(String[] args) {
-        System.out.println( RegexUtils.isEmail("fdsfsd@fd.com"));
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("fds");
+
+        HashMap hashMap = new HashMap();
     }
 }
