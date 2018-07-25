@@ -369,9 +369,7 @@ public class SnowflakeIdWorker {
 
 //如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常
 
-
         if
-
                 (
                 timestamp
                         <
@@ -379,16 +377,10 @@ public class SnowflakeIdWorker {
                 )
 
         {
-
-
             throw
-
                     new
-
                             RuntimeException
                             (
-
-
                                     String
                                             .
                                                     format
@@ -399,75 +391,22 @@ public class SnowflakeIdWorker {
                                                                             -
                                                                             timestamp
                                                             ));
-
-
         }
 
 
 //如果是同一时间生成的，则进行毫秒内序列
 
-
-        if
-
-                (
-                lastTimestamp
-                        ==
-                        timestamp
-                )
-
-        {
-
-            sequence
-                    =
-
-                    (
-                            sequence
-                                    +
-
-                                    1
-                    )
-
-                            &
-                            sequenceMask
-            ;
-
-
+        if (lastTimestamp == timestamp)
+        { sequence = (sequence + 1) & sequenceMask;
 //毫秒内序列溢出
-
-
-            if
-
-                    (
-                    sequence
-                            ==
-
-                            0
-                    )
-
+            if (sequence == 0)
             {
-
-
 //阻塞到下一个毫秒,获得新的时间戳
-
-                timestamp
-                        =
-                        tilNextMillis
-                                (
-                                        lastTimestamp
-                                );
-
-
+                timestamp = tilNextMillis(lastTimestamp);
             }
-
-
         }
-
-
 //时间戳改变，毫秒内序列重置
-
-
         else
-
         {
 
             sequence
@@ -676,8 +615,6 @@ public class SnowflakeIdWorker {
                             .
                                     nextId
                                             ();
-
-
             System
                     .
                             out
@@ -690,8 +627,6 @@ public class SnowflakeIdWorker {
                                                                     (
                                                                             id
                                                                     ));
-
-
             System
                     .
                             out
@@ -700,7 +635,6 @@ public class SnowflakeIdWorker {
                                     (
                                             id
                                     );
-
 
         }
 
